@@ -2,6 +2,9 @@ package baseball.service;
 
 import baseball.vo.Baseball;
 import baseball.vo.Status;
+import nextstep.utils.Randoms;
+
+import java.util.HashSet;
 
 public class BaseballServiceImpl implements BaseballService {
     @Override
@@ -31,9 +34,17 @@ public class BaseballServiceImpl implements BaseballService {
         return true;
     }
 
+    /**
+     *
+     * @param baseball
+     * Description : 세자리 서로다른 숫자 배열을 만든다.
+     */
     private void setNumbers(Baseball baseball) {
-        System.out.println("setNumbers method");
-        baseball.setNumbers(new String[3]);
+        HashSet<String> hashSet = new HashSet<>();
+        while(hashSet.size() != BALL_CNT) {
+            hashSet.add(String.valueOf(Randoms.pickNumberInRange(MIN_NUMBER, MAX_NUMBER)));
+        }
+        baseball.setNumbers(hashSet.toArray(new String[hashSet.size()]));
     }
 
 
