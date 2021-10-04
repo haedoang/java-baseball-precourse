@@ -19,5 +19,12 @@ public class Constants {
     public static final String MSG_NOTHING = "낫싱";
     public static final String MSG_HOMERUN = "3개의 숫자를 모두 맞히셨습니다! 게임 끝";
 
+    /** Error Messages */
+    public static final String MSG_ERROR_NUMBER_FORMAT = "[ERROR] 숫자만 입력해주세요.";
+    public static final String MSG_ERROR_LENGTH_MISMATCH = "[ERROR] 자리수가 다릅니다.";
+    public static final String MSG_ERROR_DUPLICATE_NUMBER = "[ERROR] 서로 다른 수를 입력해주세요.";
+    public static final String MSG_ERROR_NOT_COMMAND = "[ERROR] 알수없는 명령어입니다.";
+
+
 
 }

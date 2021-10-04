@@ -1,10 +1,13 @@
 package baseball.service;
 
+import baseball.utils.TextUtil;
 import baseball.vo.Baseball;
 import baseball.vo.Status;
 import nextstep.utils.Randoms;
 
 import java.util.HashSet;
+
+import static baseball.utils.Constants.*;
 
 public class BaseballServiceImpl implements BaseballService {
     @Override
@@ -25,12 +28,30 @@ public class BaseballServiceImpl implements BaseballService {
     }
 
     private boolean checkNumber(String number) {
-        System.out.println("check number");
+        //cond1. 글자수 체크
+        if(number.length() != BALL_CNT) {
+            System.out.println(MSG_ERROR_LENGTH_MISMATCH);
+            return false;
+        }
+        //cond2. 숫자인지 체크
+        if(!TextUtil.isNumber(number)) {
+            System.out.println(MSG_ERROR_NUMBER_FORMAT);
+            return false;
+        }
+        //cond2. 중복된 숫자인지 확인
+        if(TextUtil.hasDuplicate(number)) {
+            System.out.println(MSG_ERROR_DUPLICATE_NUMBER);
+            return false;
+        }
         return true;
     }
 
     private boolean checkCommand(String number) {
-        System.out.println("check command");
+        //cond1. 명령어인지 체크
+        if(!TextUtil.isCommand(number)) {
+            System.out.println(MSG_ERROR_NOT_COMMAND);
+            return false;
+        }
         return true;
     }
 
