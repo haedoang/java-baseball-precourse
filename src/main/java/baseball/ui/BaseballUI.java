@@ -22,9 +22,11 @@ public class BaseballUI implements BaseUI {
     @Override
     public void start() {
         this.init();
-        String input = this.input(Constants.MSG_INPUT_NUMBER, baseball.getStatus());
-        String resultMsg = this.service.play(baseball, input);
-        System.out.println(resultMsg);
+        do {
+            String input = this.input(Constants.MSG_INPUT_NUMBER, baseball.getStatus());
+            String resultMsg = this.service.play(baseball, input);
+            System.out.println(resultMsg);
+        } while(true);
     }
 
     @Override
@@ -37,7 +39,6 @@ public class BaseballUI implements BaseUI {
         System.out.print(msg);
         String input = Console.readLine();
         if(!this.service.validate(input, status)) {
-            System.out.println("validate false");
             this.input(msg, status);
         }
         return input;
