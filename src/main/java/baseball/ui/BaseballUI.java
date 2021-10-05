@@ -6,7 +6,11 @@ import baseball.utils.Constants;
 import baseball.vo.Baseball;
 import baseball.vo.Status;
 import nextstep.utils.Console;
-
+/**
+ * date : 2021.10.04
+ * Author : haedong kim
+ * Description : BaseballUI
+ */
 public class BaseballUI implements BaseUI {
     private Baseball baseball;
     private BaseballService service;
@@ -14,6 +18,7 @@ public class BaseballUI implements BaseUI {
     public BaseballUI() {
         this.service = new BaseballServiceImpl();
     }
+
     @Override
     public void init() {
         baseball = this.service.createGame();

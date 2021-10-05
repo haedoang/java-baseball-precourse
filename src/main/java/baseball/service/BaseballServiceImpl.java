@@ -5,9 +5,12 @@ import baseball.vo.Baseball;
 import baseball.vo.Status;
 import nextstep.utils.Randoms;
 
-
 import static baseball.utils.Constants.*;
-
+/**
+ * date : 2021.10.04
+ * Author : haedong kim
+ * Description : BaseballServiceImpl
+ */
 public class BaseballServiceImpl implements BaseballService {
     @Override
     public Baseball createGame() {

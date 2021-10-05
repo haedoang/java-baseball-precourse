@@ -3,6 +3,11 @@ package baseball.service;
 import baseball.vo.Baseball;
 import baseball.vo.Status;
 
+/**
+ * date : 2021.10.04
+ * Author : haedong kim
+ * Description : BaseballService
+ */
 public interface BaseballService {
     /** 서로 다른 세 숫자의 최소 값 */
     int MIN_NUMBER = 1;

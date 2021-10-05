@@ -1,11 +1,8 @@
 package baseball.service;
 
-import baseball.ui.BaseUI;
-import baseball.ui.BaseballUI;
 import baseball.utils.Constants;
 import baseball.vo.Baseball;
 import baseball.vo.Status;
-import org.assertj.core.api.Assertions;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.MethodOrderer;
 import org.junit.jupiter.api.Test;

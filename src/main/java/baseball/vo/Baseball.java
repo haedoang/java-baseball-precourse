@@ -1,5 +1,10 @@
 package baseball.vo;
 
+/**
+ * date : 2021.10.04
+ * Author : haedong kim
+ * Description : Baseball VO
+ */
 public class Baseball {
     private String[] numbers;
     private Status status;
