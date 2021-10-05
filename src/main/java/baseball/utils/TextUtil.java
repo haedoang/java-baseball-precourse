@@ -8,6 +8,7 @@ import java.util.HashSet;
  * Description : TextUtil.java
  */
 public class TextUtil {
+    private static StringBuffer sb = new StringBuffer();
     /**
      * @Description : 중복된 문자가 있는지 체크
      */
@@ -31,6 +32,17 @@ public class TextUtil {
      */
     public static boolean isCommand(String input) {
         return (input.equals(Constants.COMMAND_CONTINUE) || input.equals(Constants.COMMAND_STOP)) ? true : false;
+    }
+
+    public static String resultMsg(int strikeCount, int ballCount) {
+        sb.setLength(0);
+        if(strikeCount > 0) {
+            sb.append(strikeCount).append(Constants.MSG_STRIKE);
+        }
+        if(ballCount > 0) {
+            sb.append(sb.length() > 0 ? " " : "").append(ballCount).append(Constants.MSG_BALL);
+        }
+        return (sb.length() == 0) ? Constants.MSG_NOTHING : sb.toString();
     }
 
 }

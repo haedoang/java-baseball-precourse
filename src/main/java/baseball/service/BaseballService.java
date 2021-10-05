@@ -13,7 +13,7 @@ public interface BaseballService {
 
     Baseball createGame();
 
-    void play(Baseball baseball, String number);
+    String play(Baseball baseball, String number);
 
     boolean validate(String number, Status status);
 

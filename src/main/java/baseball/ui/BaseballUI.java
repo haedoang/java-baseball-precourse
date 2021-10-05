@@ -22,14 +22,9 @@ public class BaseballUI implements BaseUI {
     @Override
     public void start() {
         this.init();
-        do {
-            String input = this.input(Constants.MSG_INPUT_NUMBER, baseball.getStatus());
-            this.service.play(baseball, input);
-        } while(baseball.getStatus() == Status.START);
-        String input = this.input(Constants.MSG_INPUT_RESTART, baseball.getStatus());
-        if(input.equals(Constants.COMMAND_CONTINUE)) this.start();
-        if(input.equals(Constants.COMMAND_STOP)) this.stop();
-
+        String input = this.input(Constants.MSG_INPUT_NUMBER, baseball.getStatus());
+        String resultMsg = this.service.play(baseball, input);
+        System.out.println(resultMsg);
     }
 
     @Override

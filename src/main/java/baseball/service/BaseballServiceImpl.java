@@ -18,8 +18,15 @@ public class BaseballServiceImpl implements BaseballService {
     }
 
     @Override
-    public void play(Baseball baseball, String number) {
-        System.out.println("do play");
+    public String play(Baseball baseball, String number) {
+        int strike = 0;
+        int ball = 0;
+        for(int i = 0; i < baseball.getNumbers().length; i++) {
+            int index = number.indexOf(baseball.getNumbers()[i]);
+            strike = (index != -1 && index == i) ? ++strike : strike;
+            ball = (index != -1 && index != i) ? ++ball : ball;
+        }
+        return TextUtil.resultMsg(strike, ball);
     }
 
     @Override

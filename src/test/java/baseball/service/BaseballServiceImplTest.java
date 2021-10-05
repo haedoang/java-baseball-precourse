@@ -46,6 +46,7 @@ public class BaseballServiceImplTest {
         boolean validate2 = service.validate(input2, Status.START);
         boolean validate3 = service.validate(input3, Status.START);
         boolean validate4 = service.validate(input4, Status.START);
+
         /** THEN */
         assertThat(validate1).isTrue();
         assertThat(validate2).isFalse();
@@ -68,4 +69,24 @@ public class BaseballServiceImplTest {
         assertThat(validate2).isTrue();
         assertThat(validate3).isFalse();
     }
+
+    @Test
+    void T04_볼_확인() {
+        /** GIVEN */
+        Baseball baseball = new Baseball();
+        baseball.setNumbers(new String[] {"1","2","3"});
+        String number1 = "123";
+        String number2 = "567";
+        String number3 = "156";
+
+        /** WHEN */
+        String result1 = service.play(baseball, number1);
+        String result2= service.play(baseball, number2);
+        String result3 = service.play(baseball, number3);
+
+        assertThat(result1).isEqualTo("3" + Constants.MSG_STRIKE);
+        assertThat(result2).isEqualTo(Constants.MSG_NOTHING);
+        assertThat(result3).isEqualTo("1" + Constants.MSG_STRIKE);
+    }
+
 }
