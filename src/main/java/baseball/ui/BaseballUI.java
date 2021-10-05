@@ -25,8 +25,11 @@ public class BaseballUI implements BaseUI {
         do {
             String input = this.input(Constants.MSG_INPUT_NUMBER, baseball.getStatus());
             String resultMsg = this.service.play(baseball, input);
-            System.out.println(resultMsg);
-        } while(true);
+            this.checkResultMessage(resultMsg);
+        } while(baseball.getStatus() == Status.START);
+        String input = this.input(Constants.MSG_INPUT_RESTART, baseball.getStatus());
+        if(input.equals(Constants.COMMAND_CONTINUE)) this.start();
+        if(input.equals(Constants.COMMAND_STOP)) this.stop();
     }
 
     @Override
@@ -42,5 +45,13 @@ public class BaseballUI implements BaseUI {
             this.input(msg, status);
         }
         return input;
+    }
+
+    public void checkResultMessage(String msg) {
+        System.out.println(msg);
+        if(msg.equals(Constants.MSG_THREE_STRIKE)) {
+            System.out.println(Constants.MSG_HOMERUN);
+            this.baseball.setStatus(Status.STOP);
+        }
     }
 }
