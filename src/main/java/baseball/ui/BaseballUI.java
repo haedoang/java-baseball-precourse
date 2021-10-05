@@ -8,8 +8,8 @@ import baseball.vo.Status;
 import nextstep.utils.Console;
 
 public class BaseballUI implements BaseUI {
-    Baseball baseball;
-    BaseballService service;
+    private Baseball baseball;
+    private BaseballService service;
 
     public BaseballUI() {
         this.service = new BaseballServiceImpl();
@@ -34,12 +34,12 @@ public class BaseballUI implements BaseUI {
 
     @Override
     public void stop() {
-        System.exit(0);
+        return;
     }
 
     @Override
     public String input(String msg, Status status) {
-        System.out.print(msg);
+        System.out.print(status == Status.START ? msg : msg + "\n");
         String input = Console.readLine();
         if(!this.service.validate(input, status)) {
             this.input(msg, status);
